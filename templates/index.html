@@ -1,0 +1,99 @@
+<!-- index.html -->
+{% extends 'base.html' %}
+{% block title %} Index {% endblock %}
+{% block content %}
+<div class="col-12">
+    <br>
+    <h5>Welcome to DeeSupportClinic| <small>A Diabetes Neuropathy Prediction and Support System.</small></h5><br>
+    <p><small>Please fill out the form below in order to get AI based insights</small></p>
+    <div class="card bg-dark">
+        <div class="card-body">
+            <form action="/recommend" method="post">
+                <div class="row">
+                    <div class="form-group col-sm-4">
+                        <label for="age">Age:</label>
+                        <input type="number" name="Age" class="form-control" required>
+                    </div>
+        
+                    <div class="form-group col-sm-4">
+                        <label for="bmi">BMI (Body Mass Index):</label>
+                        <input type="number" step="0.01" name="BMI" class="form-control" required>
+                    </div>
+        
+                    <div class="form-group col-sm-4">
+                        <label for="fasting_blood_sugar">Fasting Blood Sugar (mg/dL):</label>
+                        <input type="number" step="1" name="Fasting_Blood_Sugar" class="form-control" required>
+                    </div>
+                </div>
+        
+                <div class="row">
+                    <div class="form-group col-sm-6">
+                        <label for="family_history">Family History of Diabetes:</label>
+                        <select name="Family_History_of_Diabetes" class="form-control" required>
+                            <option value="0">No</option>
+                            <option value="1">Yes</option>
+                        </select>
+                    </div>
+        
+                    <div class="form-group col-sm-6">
+                        <label for="numbness">Numbness in Extremities:</label>
+                        <select name="Numbness_in_Extremities" class="form-control" required>
+                            <option value="0">No</option>
+                            <option value="1">Yes</option>
+                        </select>
+                    </div>
+                </div>
+        
+                <div class="row">
+                    <div class="form-group col-sm-4">
+                        <label for="blurred_vision">Blurred Vision:</label>
+                        <select name="Blurred_Vision" class="form-control" required>
+                            <option value="0">No</option>
+                            <option value="1">Yes</option>
+                        </select>
+                    </div>
+        
+                    <div class="form-group col-sm-4">
+                        <label for="gender">Gender:</label>
+                        <select name="Gender" required class="form-control">
+                            <option value="0">Male</option>
+                            <option value="1">Female</option>
+                        </select>
+                    </div>
+        
+                    <div class="form group">
+                        <label for="smoking_status">Smoking Status:</label>
+                        <select name="Smoking_Status" class="form-control" required>
+                            <option value="0">Non-smoker</option>
+                            <option value="1">Former smoker</option>
+                            <option value="2">Current smoker</option>
+                        </select>
+                    </div>
+                </div>
+        
+                <div class="row">
+                    <div class="form-group col-sm-4">
+                        <label for="activity_level">Physical Activity Level:</label>
+                        <select name="Physical_Activity_Level" class="form-control" required>
+                            <option value="0">Low</option>
+                            <option value="1">Moderate</option>
+                            <option value="2">High</option>
+                        </select>
+                    </div>
+        
+                    <div class="form-group col-sm-4">
+                        <label for="systolic_bp">Systolic Blood Pressure (mmHg):</label>
+                        <input type="number" step="1" name="Systolic_BP" class="form-control" required>
+                    </div>
+                    <div class="form-group col-sm-4">
+                        <label for="diastolic_bp">Diastolic Blood Pressure (mmHg):</label>
+                        <input type="number" step="1" name="Diastolic_BP" class="form-control" required>
+                    </div>
+                </div>
+        
+                <input type="submit" value="Get Recommendation" class="btn btn-primary">
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}

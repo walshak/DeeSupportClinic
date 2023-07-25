@@ -1,0 +1,88 @@
+<!-- result.html -->
+{% extends 'base.html' %}
+{% block title %} Index {% endblock %}
+{% block content %}
+<h1>Diabetes Neuropathy Support System - Results</h1>
+<table class="table table-dark">
+    <tr>
+        <th>Prediction</th>
+        <td>{{ prediction }}</td>
+        <th>Confidence Score(%)</th>
+        <td>{{confidence[0]}}</td>
+    </tr>
+    <tr>
+        <th colspan="4">Supplied Inputs</th>
+    </tr>
+    <tr>
+        <td>Age</td>
+        <td>{{user_input[0]}}</td>
+        <td>Gender</td>
+        <td>
+            {% if user_input[1] == 0 %}
+                Male
+            {% else %}
+                Female
+            {%endif%}
+        </td>
+    </tr>
+    <tr>
+        <td>BMI</td>
+        <td>{{user_input[2]}}</td>
+        <td>Fasting Blood Sugar (mg/dL)</td>
+        <td>{{user_input[3]}}</td>
+    </tr>
+    <tr>
+        <td>Family History of Diabetes</td>
+        <td>
+            {% if user_input[4] == 0 %}
+                No
+            {% else %}
+                Yes
+            {%endif%}
+        </td>
+        <td>Smoking Status</td>
+        <td>
+            {% if user_input[5] == 0 %}
+                Non-smoker
+            {%elif user_input[5] == 1 %}
+            Former smoker
+            {% else %}
+                Current Smoker
+            {%endif%}
+        </td>
+    </tr>
+    <tr>
+        <td>Physical Activity Level</td>
+        <td>
+            {% if user_input[6] == 0 %}
+                Low
+            {%elif user_input[6] == 1 %}
+                Moderate
+            {% else %}
+                High
+            {%endif%}
+        </td>
+        <td>Numbness in Extremities</td>
+        <td>
+            {% if user_input[7] == 0 %}
+                No
+            {% else %}
+                Yes
+            {%endif%}
+        </td>
+    </tr>
+    <tr>
+        <td>Blurred Vision</td>
+        <td>
+            {% if user_input[8] == 0 %}
+                No
+            {% else %}
+                Yes
+            {%endif%}
+        </td>
+        <td>Blood Pressure</td>
+        <td>{{user_input[9]}}/{{user_input[10]}}</td>
+    </tr>
+</table>
+<a href="/">Back to Input</a>
+{% endblock %}

@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>Profile</h1>
+<form action="{{url_for('profile', user_id=session['user_id'])}}" method="POST">
+    <div class="row">
+        <div class="mb-3 col-sm-4">
+            <label for="username" class="form-label">Username <br><small>Your Username</small></label>
+            <input type="text" class="form-control" id="username" name="username" value="{{ user.username }}">
+        </div>
+        <div class="mb-3 col-sm-4">
+            <label for="email" class="form-label">Email <br><small>Your Password</small></label>
+            <input type="email" class="form-control" id="email" name="email" value="{{ user.email }}">
+        </div>
+        <div class="mb-3 col-sm-4">
+            <label for="password" class="form-label">Password <br> <small>Leave blank if you do not wish to change your pssword</small></label>
+            <input type="password" class="form-control" id="password" name="password">
+        </div>
+    </div>
+    <button type="submit" class="btn btn-primary">Save</button>
+</form>
+
+{% endblock %}
